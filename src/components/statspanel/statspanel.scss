@@ -1,0 +1,41 @@
+@use "../../styles/variables" as *;
+
+.stats-panel {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+
+  @media (max-width: 900px) { grid-template-columns: repeat(3, 1fr); }
+  @media (max-width: 500px) { grid-template-columns: repeat(2, 1fr); }
+}
+
+.stat-card {
+  background: $bg-card;
+  border: 1px solid $bg-border;
+  border-radius: $radius-md;
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: border-color $transition;
+
+  &:hover { border-color: $text-muted; }
+}
+
+.stat-label {
+  font-family: $font-mono;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: $text-muted;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.stat-value {
+  font-family: $font-display;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: $text-primary;
+  line-height: 1;
+}

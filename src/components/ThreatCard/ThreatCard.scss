@@ -1,0 +1,165 @@
+@use "../../styles/variables" as *;
+
+.threat-card {
+  background: $bg-card;
+  border: 1px solid $bg-border;
+  border-radius: $radius-lg;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: border-color $transition, transform $transition;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: $bg-border;
+    transition: background $transition;
+  }
+
+  &:hover {
+    border-color: $text-muted;
+    transform: translateY(-1px);
+  }
+}
+
+.threat-card-urgent {
+  border-color: rgba(230, 57, 70, 0.35);
+
+  &::before { background: $critical; }
+  &:hover   { border-color: rgba(230, 57, 70, 0.6); }
+}
+
+.threat-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.threat-card-type {
+  font-family: $font-mono;
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.threat-card-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: $text-primary;
+  line-height: 1.4;
+}
+
+.threat-card-cve {
+  display: inline-block;
+  font-family: $font-mono;
+  font-size: 0.7rem;
+  color: $info;
+  background: rgba(69, 123, 157, 0.1);
+  border: 1px solid rgba(69, 123, 157, 0.25);
+  padding: 0.15rem 0.5rem;
+  border-radius: $radius-sm;
+}
+
+.threat-card-desc {
+  font-size: 0.8rem;
+  color: $text-secondary;
+  line-height: 1.6;
+}
+
+.threat-card-systems {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.system-tag {
+  font-family: $font-mono;
+  font-size: 0.65rem;
+  color: $text-muted;
+  background: $bg-surface;
+  border: 1px solid $bg-border;
+  padding: 0.15rem 0.5rem;
+  border-radius: $radius-sm;
+}
+
+.threat-card-expanded {
+  border-top: 1px solid $bg-border;
+  padding-top: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  animation: slideDown 0.2s ease;
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+}
+
+.expanded-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.expanded-label {
+  font-family: $font-mono;
+  font-size: 0.65rem;
+  color: $text-muted;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.ioc-item {
+  font-family: $font-mono;
+  font-size: 0.72rem;
+  color: $accent;
+  background: rgba(230, 57, 70, 0.08);
+  padding: 0.2rem 0.5rem;
+  border-radius: $radius-sm;
+  border-left: 2px solid $accent;
+}
+
+.expanded-value {
+  font-family: $font-mono;
+  font-size: 0.75rem;
+  color: $text-secondary;
+}
+
+.threat-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.5rem;
+  border-top: 1px solid $bg-border;
+  margin-top: auto;
+}
+
+.threat-card-age {
+  font-family: $font-mono;
+  font-size: 0.7rem;
+  color: $text-muted;
+}
+
+.threat-card-btn {
+  font-family: $font-mono;
+  font-size: 0.7rem;
+  color: $text-muted;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.2rem 0.5rem;
+  border-radius: $radius-sm;
+  transition: color $transition, background $transition;
+
+  &:hover {
+    color: $text-primary;
+    background: $bg-surface;
+  }
+}

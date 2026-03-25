@@ -1,0 +1,125 @@
+@use "../../styles/variables" as *;
+
+.filterbar {
+  background: $bg-card;
+  border: 1px solid $bg-border;
+  border-radius: $radius-lg;
+  padding: 1.25rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.filterbar-search-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.filterbar-search {
+  width: 100%;
+  background: $bg-surface;
+  border: 1px solid $bg-border;
+  border-radius: $radius-md;
+  padding: 0.6rem 2.5rem 0.6rem 0.75rem;
+  font-family: $font-mono;
+  font-size: 0.8rem;
+  color: $text-primary;
+  outline: none;
+  transition: border-color $transition;
+
+  &::placeholder { color: $text-muted; }
+  &:focus        { border-color: $text-muted; }
+}
+
+.filterbar-clear {
+  position: absolute;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  color: $text-muted;
+  cursor: pointer;
+  font-size: 0.7rem;
+  &:hover { color: $text-primary; }
+}
+
+.filterbar-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.filterbar-label {
+  font-family: $font-mono;
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: $text-muted;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  min-width: 48px;
+}
+
+.filterbar-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.pill {
+  font-family: $font-mono;
+  font-size: 0.7rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 20px;
+  border: 1px solid $bg-border;
+  background: $bg-surface;
+  color: $text-secondary;
+  cursor: pointer;
+  transition: all $transition;
+
+  &:hover            { border-color: $text-muted; color: $text-primary; }
+  &.pill-active      { background: $bg-border; color: $text-primary; border-color: $text-muted; }
+}
+
+.pill-critical.pill-active { background: rgba(230,57,70,0.15);  color: $critical; border-color: rgba(230,57,70,0.4); }
+.pill-high.pill-active     { background: rgba(244,162,97,0.15); color: $high;     border-color: rgba(244,162,97,0.4); }
+.pill-medium.pill-active   { background: rgba(233,196,106,0.15);color: $medium;   border-color: rgba(233,196,106,0.4); }
+.pill-low.pill-active      { background: rgba(42,157,143,0.15); color: $low;      border-color: rgba(42,157,143,0.4); }
+
+.filterbar-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.filterbar-count {
+  font-family: $font-mono;
+  font-size: 0.72rem;
+  color: $text-muted;
+}
+
+.filterbar-sort {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.filterbar-select {
+  background: $bg-surface;
+  border: 1px solid $bg-border;
+  border-radius: $radius-sm;
+  padding: 0.3rem 0.6rem;
+  font-family: $font-mono;
+  font-size: 0.72rem;
+  color: $text-secondary;
+  cursor: pointer;
+  outline: none;
+  transition: border-color $transition;
+
+  &:hover, &:focus { border-color: $text-muted; }
+  option           { background: $bg-card; }
+}
